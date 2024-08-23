@@ -1,4 +1,5 @@
 <?php
+include('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/encabezado.php');
 include('../app/controllers/usuarios/listado_de_usuarios.php');
@@ -38,15 +39,23 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
                     <tr> 
                     <th>Nro </th>
                     <th>Nombres </th>
+                    <th>Usuario </th>
                     <th>Email </th>
                     </tr>
 
                  <body>
                     <?php
-                      foreach ($usuarios_datos as $usuarios_dato){
-
+                      foreach ($usuarios_datos as $usuarios_dato) { ?>
+                     <tr> 
+                        <td><?php echo $usuarios_dato['id_usuarios']; ?></td>
+                        <td><?php echo $usuarios_dato['nombres']; ?></td>
+                        <td><?php echo $usuarios_dato['usuarios']; ?></td>
+                        <td><?php echo $usuarios_dato['email']; ?></td>
+                     </tr>                  
+                    <?php
                     }
                     ?>
+                    
                 </body>
                 </table>
             </div>

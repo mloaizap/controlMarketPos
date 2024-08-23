@@ -1,7 +1,5 @@
 <?php
 
-include('../../config.php');
-
 //consulta usuarios
 $sql_usuarios = "SELECT * FROM tb_usuarios";
 $query_usuarios = $pdo ->prepare($sql_usuarios);
