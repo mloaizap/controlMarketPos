@@ -19,8 +19,6 @@ $usuarios_tabla = $user['usuarios']; // user es igual a usuarios de la tabla de 
 $nombres = $user['nombres'];
 $password_user_tabla = $user['password_user'];
 
-
-
 }
 
 if(($contador > 0) && (password_verify($password_user, $password_user_tabla)) ) {
@@ -34,8 +32,6 @@ if(($contador > 0) && (password_verify($password_user, $password_user_tabla)) ) 
     session_start();
     $_SESSION['mensaje'] = "Error datos incorrectos";
     header('Location: '.$URL.'/login');
-
 }
-
 
 ?>

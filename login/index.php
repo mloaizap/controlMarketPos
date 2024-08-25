@@ -28,19 +28,18 @@
     Swal.fire({
     position: "top-end",
     icon: "error",
-    title: "<?php echo $respuesta?>",
+    title: "<?php echo $respuesta;?>",
     showConfirmButton: false,
     timer: 1500
-});
+})
   </script>
   <?php
+  unset($_SESSION['mensaje']);
  }
  
  ?>
 
-
-
-  <div class="card card-outline card-primary">
+<div class="card card-outline card-primary">
     <div class="card-header text-center">
       <a href="../public/templates/AdminLTE-3.2.0/index2.html" class="h1"><b>ControlMarketPos</b>Merkerapido</a>
         <img src = "https://img.freepik.com/free-vector/share-business-dividend-calculation-percentage-ratio-contribution-size-deposit-amount-accounting-audit-shareholders-cartoon-characters_335657-1217.jpg?ga=GA1.1.637859363.1723323797&semt=ais_hybrid" style="width:170px;height:170px";>

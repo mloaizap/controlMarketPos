@@ -21,7 +21,9 @@ $sentencia->bindParam(':password_user', $password_user);
 $sentencia->bindParam(':fyh_creacion', $fechaHora);
 $sentencia -> execute();
 }else{
-  echo"Las contraseñas no son iguales";
+  session_start();
+  $_SESSION['mensajes'] = "Error las contraseñas no son iguales";
+  header('Location: '.$URL.'/usuarios/create.php');
 }
 
 

@@ -23,7 +23,7 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
       <div class="container-fluid">
 
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
             <div class="card card-primary">
             <div class="card-header">
             <h3 class="card-title">Usuarios registrados</h3>
@@ -35,43 +35,72 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
             </div>
 
             <div class="card-body" style="display: block;">
-                 <table class="table table-bordered table-hover table-sm">
-                    <tr> 
-                    <th>Nro </th>
-                    <th>Nombres </th>
-                    <th>Usuario </th>
-                    <th>Email </th>
+                               
+                </table>
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr> 
+                    <th><center>Nro</center> </th>
+                    <th><center>Nombres</center> </th>
+                    <th><center>Usuario</center> </th>
+                    <th><center>Email</center> </th>
+                    <th><center>Acciones</center> </th>
                     </tr>
-
-                 <body>
+                  </thead>
+                  <body>
                     <?php
-                      foreach ($usuarios_datos as $usuarios_dato) { ?>
+                       $contador = 0;
+                      foreach ($usuarios_datos as $usuarios_dato) { 
+                      $id_usuario = $usuarios_dato['id_usuarios'];?>
                      <tr> 
-                        <td><?php echo $usuarios_dato['id_usuarios']; ?></td>
+                        <td><center><?php echo $contador = $contador + 1; ?></center></td>
                         <td><?php echo $usuarios_dato['nombres']; ?></td>
                         <td><?php echo $usuarios_dato['usuarios']; ?></td>
                         <td><?php echo $usuarios_dato['email']; ?></td>
+                        <td>
+                        <center>
+                        <div class="btn-group">
+                            <a href = "show.php?id=<?php echo $id_usuario;?>" type="button" class="btn btn-info"><i class="fa fa-eye"></i>Ver</button>
+                            <button type="button" class="btn btn-success"><i class="fa fa-pencil-alt"></i>Editar</button>
+                            <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar</button>
+                        </div>
+                        </center>
+                        </td>
                      </tr>                  
                     <?php
                     }
-                    ?>
+                    ?>                
                     
                 </body>
+                  
+                  <tfoot>
+                  <tr> 
+                    <th><center>Nro</center> </th>
+                    <th><center>Nombres</center> </th>
+                    <th><center>Usuario</center> </th>
+                    <th><center>Email</center> </th>
+                    <th><center>Acciones</center> </th>
+                    </tr>
+                  </tfoot>
                 </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+               
             </div>
 
             </div>
             </div>
         </div>
       
-
-
-
-
-
-
-      
-          
+         
           <!-- /.col-md-6 -->
         </div>
         <!-- /.row -->
@@ -80,5 +109,65 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
+  
 <?php include('../layout/footer.php'); ?>
+<!-- Page specific script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+   /* cambio de idiomas de datatable */
+   "pageLength": 8,
+          language: {
+              "emptyTable": "No hay información",
+              "decimal": "",
+              "info": "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
+              "infoEmpty": "Mostrando 0 to 0 of 0 Usuarios",
+              "infoFiltered": "(Filtrado de MAX total Usuarios)",
+              "infoPostFix": "",
+              "thousands": ",",
+              "lengthMenu": "Mostrar MENU Usuarios",
+              "loadingRecords": "Cargando...",
+              "processing": "Procesando...",
+              "search": "Buscador:",
+              "zeroRecords": "Sin resultados encontrados",
+              "paginate": {
+                  "first": "Primero",
+                  "last": "Ultimo",
+                  "next": "Siguiente",
+                  "previous": "Anterior"
+              },
+             },
+      /* fin de idiomas */
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      //"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"] ---visualizar todo
+      /* Ajuste de botones */
+      buttons: [{
+                        extend: 'collection',
+                        text: 'Reportes',
+                        orientation: 'landscape',
+                        buttons: [{
+                            text: 'Copiar',
+                            extend: 'copy'
+                        }, {
+                            extend: 'pdf',
+                        }, {
+                            extend: 'csv',
+                        }, {
+                            extend: 'excel',
+                        }, {
+                            text: 'Imprimir',
+                            extend: 'print'
+                        }
+                        ]
+                    },
+                        {
+                            extend: 'colvis',
+                            text: 'Visor de columnas'
+                        }
+                    ],
+                    /*Fin de ajuste de botones*/
+
+
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    });
+</script>
