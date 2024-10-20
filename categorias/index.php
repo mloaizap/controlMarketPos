@@ -2,7 +2,7 @@
 include('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/encabezado.php');
-include('../app/controllers/usuarios/listado_de_usuarios.php');
+include('../app/controllers/categorias/listado_categorias.php');
 
 ?>
   <!-- Content Wrapper. Contains page content -->
@@ -12,7 +12,7 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
-            <h1 class="m-0">Listado de usuarios</h1>
+            <h1 class="m-0">Listado de categorias</h1>
           </div><!-- /.col -->
          </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -24,10 +24,10 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
       <div class="container-fluid">
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
             <div class="card card-primary">
             <div class="card-header">
-            <h3 class="card-title">Usuarios registrados</h3>
+            <h3 class="card-title">Categorias creadas</h3>
             <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
             </button>
@@ -42,28 +42,23 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
                   <thead>
                   <tr> 
                     <th><center>Nro</center> </th>
-                    <th><center>Nombres</center> </th>
-                    <th><center>Usuario</center> </th>
-                    <th><center>Email</center> </th>
+                    <th><center>Nombre categoria</center> </th>
                     <th><center>Acciones</center> </th>
                     </tr>
                   </thead>
                   <body>
                     <?php
                        $contador = 0;
-                      foreach ($usuarios_datos as $usuarios_dato) { 
-                      $id_usuario = $usuarios_dato['id_usuario'];?>
+                      foreach ($categorias_datos as $categorias_dato) { 
+                      $id_categoria = $categorias_dato['id_categoria'];?>
                      <tr> 
                         <td><center><?php echo $contador = $contador + 1; ?></center></td>
-                        <td><?php echo $usuarios_dato['nombres']; ?></td>
-                        <td><?php echo $usuarios_dato['usuarios']; ?></td>
-                        <td><?php echo $usuarios_dato['email']; ?></td>
+                        <td><?php echo $categorias_dato['nombre_categoria']; ?></td>
                         <td>
                         <center>
                         <div class="btn-group">
-                            <a href = "show.php?id=<?php echo $id_usuario;?>" type="button" class="btn btn-info"><i class="fa fa-eye"></i>Ver</button></a>
-                            <a href = "update.php?id=<?php echo $id_usuario;?>"type="button" class="btn btn-success"><i class="fa fa-pencil-alt"></i>Editar</button></a>
-                            <a href = "delete.php?id=<?php echo $id_usuario;?>"type="button" class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar</button></a>
+                            <a href = "update.php?id=<?php echo $nombre_categoria;?>"type="button" class="btn btn-success"><i class="fa fa-pencil-alt"></i>Editar</button></a>
+                            <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar</button>
                         </div>
                         </center>
                         </td>
@@ -78,8 +73,6 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
                   <tr> 
                     <th><center>Nro</center> </th>
                     <th><center>Nombres</center> </th>
-                    <th><center>Usuario</center> </th>
-                    <th><center>Email</center> </th>
                     <th><center>Acciones</center> </th>
                     </tr>
                   </tfoot>
@@ -122,12 +115,12 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
           language: {
               "emptyTable": "No hay información",
               "decimal": "",
-              "info": "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
-              "infoEmpty": "Mostrando 0 to 0 of 0 Usuarios",
-              "infoFiltered": "(Filtrado de MAX total Usuarios)",
+              "info": "Mostrando _START_ a _END_ de _TOTAL_ Categorias",
+              "infoEmpty": "Mostrando 0 to 0 of 0 Categorias",
+              "infoFiltered": "(Filtrado de MAX total Categorias)",
               "infoPostFix": "",
               "thousands": ",",
-              "lengthMenu": "Mostrar MENU Usuarios",
+              "lengthMenu": "Mostrar MENU Categorias",
               "loadingRecords": "Cargando...",
               "processing": "Procesando...",
               "search": "Buscador:",

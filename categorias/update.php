@@ -2,7 +2,7 @@
 include('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/encabezado.php');
-include('../app/controllers/usuarios/show_usuario.php');
+include('../app/controllers/categorias/update_usuario.php');
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -12,7 +12,7 @@ include('../app/controllers/usuarios/show_usuario.php');
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
-          <h1 class="m-0">Visualizar información usuarios</h1>
+          <h1 class="m-0">Editar usuarios</h1>
           </div><!-- /.col -->
          </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -20,9 +20,9 @@ include('../app/controllers/usuarios/show_usuario.php');
       
       <div class="row">
             <div class="col-md-6">
-            <div class="card card-primary">
+            <div class="card card-success">
             <div class="card-header">
-            <h3 class="card-title">Información usuarios</h3>
+            <h3 class="card-title">Edita la información del usuario</h3>
             <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
             </button>
@@ -31,21 +31,33 @@ include('../app/controllers/usuarios/show_usuario.php');
 
             <div class="card-body" style="display: block;">
                 <div class="col-md-12">
+                <form action="../app/controllers/usuarios/update.php" method="post">
                   <div class="form-group">
+                  <input type="text" name="id_usuarios" value="<?php echo $id_usuario_get;?>" hidden>
                   <label for="">Nombres</label>
-                  <input type="text" name="nombres" class="form-control" value="<?php echo $nombres;?>" disabled>
+                  <input type="text" name="nombres" class="form-control" value="<?php echo $nombres;?>">
+                  </div><!-- /form group -->
                   <div class="form-group">
                   <label for="">Usuario</label>
-                  <input type="text" name="usuarios" class="form-control"value="<?php echo $usuarios;?>"  disabled> 
+                  <input type="text" name="usuarios" class="form-control" value="<?php echo $usuarios;?>">  
                   </div><!-- /form group -->
                   <div class="form-group">
                   <label for="">Email</label>
-                  <input type="email" name="email" class="form-control" value="<?php echo $email;?>"  disabled>
+                  <input type="email" name="email" class="form-control" value="<?php echo $email;?>" >
                   </div><!-- /form group -->
-                 <hr> 
+                  <div class="form-group">
+                  <label for="">Contraseña</label>
+                  <input type="password" name="password_user" class="form-control">
+                </div><!-- /form group -->
                 <div class="form-group">
-                  <a href="index.php" class="btn btn-secondary">Volver</a> 
-                  </div><!-- /form group -->
+                  <label for="">Repita la Contraseña</label>
+                  <input type="password" name="password_repeat" class="form-control">
+                </div><!-- /form group -->
+                <hr> 
+                <div class="form-group">
+                  <a href="index.php" class="btn btn-secondary">Cancelar</a> 
+                <button type="submit" class="btn btn-success">Actualizar</button>
+                </div><!-- /form group -->
               </form>
                  
                 </div><!-- /.columna 12 -->
@@ -74,5 +86,6 @@ include('../app/controllers/usuarios/show_usuario.php');
   </div>
   <!-- /.content-wrapper -->
 
-<?php include('../layout/mensaje.php'); ?>
+<?php include('../layout/mensajes.php'); ?>
 <?php include('../layout/footer.php'); ?>
+

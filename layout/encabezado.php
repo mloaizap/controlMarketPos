@@ -22,19 +22,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <link rel="stylesheet" href="<?php echo $URL;?>/public/templates/AdminLTE-3.2.0/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo $URL;?>/public/templates/AdminLTE-3.2.0/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo $URL;?>/public/templates/AdminLTE-3.2.0/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 <body class="hold-transition sidebar-mini">
-<!--Ojo por revisar-->
-<script>Swal.fire({
-  position: "top-end",
-  icon: "success",
-  title: "Bienvenido a ControlMarketPos  <?php echo $usuario_sesion;?>",
-  showConfirmButton: false,
-  timer: 1500
-});</script>
-
-
 
 <div class="wrapper">
 
@@ -90,9 +80,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
+          <li class="nav-item">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="bi bi-person"></i>
               <p>
                 Usuarios
                 <i class="users fas fa"></i>
@@ -113,7 +103,310 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
-        
+        <!-- Menu Roles -->
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="bi bi-shield-lock" ></i>
+              <p>
+                Roles
+                <i class="users fas fa"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/roles/index.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de roles</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/roles/create.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Creación de roles</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+         <!-- Menu Categorias -->
+         <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="bi bi-list-ul"></i>
+              <p>
+                Categorias
+                <i class="users fas fa"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/categorias/index.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de categorias</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/categorias/create.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Creación de categorias</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+         <!-- Menu Inventarios -->
+         <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="bi bi-boxes"></i>
+              <p>
+                Inventarios
+                <i class="users fas fa"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/inventarios/index.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado productos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/inventarios/create.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Creación de Productos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/inventarios/create.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Agregar Productos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/inventarios/create.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kardex</p>
+                </a>
+              </li>
+            </ul>
+          </li>  
+
+         <!-- Menu Proveedores -->
+         <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="bi bi-truck"></i>
+              <p>
+                Proveedores
+                <i class="users fas fa"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/proveedores/index.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado Proveedores</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/proveedores/create.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Creación de Proveedores</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Menu Ventas -->
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="bi bi-cash-stack" ></i>
+              <p>
+                Ventas
+                <i class="users fas fa"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/ventas/index.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Registrar ventas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/ventas/create.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Historial de ventas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/ventas/create.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Facturación</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Menu Clientes -->
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="bi bi-people" ></i>
+              <p>
+                Clientes
+                <i class="users fas fa"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/clientes/index.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de clientes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/clientes/create.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Agregar Clientes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/clientes/create.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Historial de compras</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+        <!-- Menu Compras -->
+        <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="bi bi-cart"></i>
+              <p>
+                Compras
+                <i class="users fas fa"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/compras/index.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado Compras</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/compras/create.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Solicitar pedidos</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Menu Promociones y descuentos -->
+         <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="bi bi-tag"></i>
+              <p>
+                Promociones y descuentos
+                <i class="users fas fa"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/descuentos/index.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ofertas y promociones</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/descuentos/create.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Descuentos especiales</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+        <!-- Menu Informes -->
+        <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="bi bi-bar-chart"></i>
+              <p>
+                Informes
+                <i class="users fas fa"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/informes/index.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Informe de Ventas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/informes/create.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Reporte de inventario</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/informes/create.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Informe financiero</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+         
+          <!-- Menu Creditos -->
+        <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="bi bi-credit-card"></i>
+              <p>
+                Creditos
+                <i class="users fas fa"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/creditos/index.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Estado de cuenta</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/creditos/create.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de clientes</p>
+                </a>
+              </li>
+             </ul>
+          </li>
+
+
+        <!-- Menu Configuración -->
+        <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="bi bi-gear" ></i>
+              <p>
+                Configuración
+                <i class="users fas fa"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/configuracion/index.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Impresora</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/configuracion/create.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Información Empresa</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

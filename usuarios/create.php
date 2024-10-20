@@ -34,23 +34,26 @@ include('../layout/encabezado.php');
                  <form action="../app/controllers/usuarios/create.php" method="post">
                   <div class="form-group">
                   <label for="">Nombres</label>
-                  <input type="text" name="nombres" class="form-control" placeholder="Escriba nombres y apellidos del usuario nuevo">
+                  <input type="text" name="nombres" class="form-control" placeholder="Escriba nombres y apellidos del usuario nuevo" required>
                   </div><!-- /form group -->
                   <div class="form-group">
                   <label for="">Usuario</label>
-                  <input type="text" name="usuarios" class="form-control" placeholder="Escriba el usuario nuevo a registrar">  
+                  <input type="text" name="usuarios" class="form-control" placeholder="Escriba el usuario nuevo a registrar" required>  
+                  </div><!-- /form group -->
+                  <label for="">Rol</label>
+                  <input type="text" name="rol" class="form-control" required>  
                   </div><!-- /form group -->
                   <div class="form-group">
                   <label for="">Email</label>
-                  <input type="email" name="email" class="form-control" placeholder="Registre su correo electronico">
+                  <input type="email" name="email" class="form-control" placeholder="Registre su correo electronico" required>
                   </div><!-- /form group -->
                   <div class="form-group">
                   <label for="">Contraseña</label>
-                  <input type="password" name="password_user" class="form-control">
+                  <input type="password" name="password_user" class="form-control" required>
                 </div><!-- /form group -->
                 <div class="form-group">
                   <label for="">Repita la Contraseña</label>
-                  <input type="password" name="password_repeat" class="form-control">
+                  <input type="password" name="password_repeat" class="form-control" required>
                 </div><!-- /form group -->
                 <hr> 
                 <div class="form-group">
@@ -84,5 +87,6 @@ include('../layout/encabezado.php');
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
+   
+<?php include('../layout/mensaje.php'); ?>
 <?php include('../layout/footer.php'); ?>

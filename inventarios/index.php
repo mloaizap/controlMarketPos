@@ -2,7 +2,7 @@
 include('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/encabezado.php');
-include('../app/controllers/usuarios/listado_de_usuarios.php');
+include('../app/controllers/inventarios/listado_productos.php');
 
 ?>
   <!-- Content Wrapper. Contains page content -->
@@ -12,7 +12,7 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
-            <h1 class="m-0">Listado de usuarios</h1>
+            <h1 class="m-0">Listado de Productos</h1>
           </div><!-- /.col -->
          </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -27,7 +27,7 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
             <div class="col-md-12">
             <div class="card card-primary">
             <div class="card-header">
-            <h3 class="card-title">Usuarios registrados</h3>
+            <h3 class="card-title">Registrar un producto nuevo</h3>
             <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
             </button>
@@ -42,28 +42,37 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
                   <thead>
                   <tr> 
                     <th><center>Nro</center> </th>
-                    <th><center>Nombres</center> </th>
-                    <th><center>Usuario</center> </th>
-                    <th><center>Email</center> </th>
+                    <th><center>codigo</center> </th>
+                    <th><center>nombre_producto</center> </th>
+                    <th><center>descripcion</center> </th>
+                    <th><center>Categoria</center> </th>
+                    <th><center>costo</center> </th>
+                    <th><center>Pecio Venta</center> </th>
+                    <th><center>stock</center> </th>
+                    <th><center>stock_minimo</center> </th>
+                    <th><center>stock_maximo</center> </th>
                     <th><center>Acciones</center> </th>
                     </tr>
                   </thead>
                   <body>
                     <?php
                        $contador = 0;
-                      foreach ($usuarios_datos as $usuarios_dato) { 
-                      $id_usuario = $usuarios_dato['id_usuario'];?>
+                      foreach ($proveedores_datos as $proveedor_dato) { 
+                      $id_proveedor = $proveedor_dato['id_proveedor'];?>
                      <tr> 
                         <td><center><?php echo $contador = $contador + 1; ?></center></td>
-                        <td><?php echo $usuarios_dato['nombres']; ?></td>
-                        <td><?php echo $usuarios_dato['usuarios']; ?></td>
-                        <td><?php echo $usuarios_dato['email']; ?></td>
+                        <td><?php echo $proveedor_dato['nombre_proveedor']; ?></td>
+                        <td><?php echo $proveedor_dato['nit']; ?></td>
+                        <td><?php echo $proveedor_dato['celular']; ?></td>
+                        <td><?php echo $proveedor_dato['telefono']; ?></td>
+                        <td><?php echo $proveedor_dato['email']; ?></td>
+                        <td><?php echo $proveedor_dato['direccion']; ?></td>
                         <td>
                         <center>
                         <div class="btn-group">
-                            <a href = "show.php?id=<?php echo $id_usuario;?>" type="button" class="btn btn-info"><i class="fa fa-eye"></i>Ver</button></a>
-                            <a href = "update.php?id=<?php echo $id_usuario;?>"type="button" class="btn btn-success"><i class="fa fa-pencil-alt"></i>Editar</button></a>
-                            <a href = "delete.php?id=<?php echo $id_usuario;?>"type="button" class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar</button></a>
+                            <a href = "show.php?id=<?php echo $id_proveedor;?>" type="button" class="btn btn-info"><i class="fa fa-eye"></i>Ver</button></a>
+                            <a href = "update.php?id=<?php echo $id_proveedor;?>"type="button" class="btn btn-success"><i class="fa fa-pencil-alt"></i>Editar</button></a>
+                            <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar</button>
                         </div>
                         </center>
                         </td>
@@ -77,9 +86,15 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
                   <tfoot>
                   <tr> 
                     <th><center>Nro</center> </th>
-                    <th><center>Nombres</center> </th>
-                    <th><center>Usuario</center> </th>
-                    <th><center>Email</center> </th>
+                    <th><center>codigo</center> </th>
+                    <th><center>nombre_producto</center> </th>
+                    <th><center>descripcion</center> </th>
+                    <th><center>Categoria</center> </th>
+                    <th><center>costo</center> </th>
+                    <th><center>Pecio Venta</center> </th>
+                    <th><center>stock</center> </th>
+                    <th><center>stock_minimo</center> </th>
+                    <th><center>stock_maximo</center> </th>
                     <th><center>Acciones</center> </th>
                     </tr>
                   </tfoot>
@@ -110,7 +125,7 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <?php include('../layout/mensaje.php'); ?>
+  <?php include('../layout/mensajes.php'); ?>
   <?php include('../layout/footer.php'); ?>
 
 <!-- Page specific script -->

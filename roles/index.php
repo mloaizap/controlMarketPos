@@ -2,7 +2,8 @@
 include('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/encabezado.php');
-include('../app/controllers/usuarios/listado_de_usuarios.php');
+include('../app/controllers/roles/listado_roles.php');
+
 
 ?>
   <!-- Content Wrapper. Contains page content -->
@@ -12,7 +13,7 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
-            <h1 class="m-0">Listado de usuarios</h1>
+            <h1 class="m-0">Listado de Roles</h1>
           </div><!-- /.col -->
          </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -24,10 +25,10 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
       <div class="container-fluid">
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
             <div class="card card-primary">
             <div class="card-header">
-            <h3 class="card-title">Usuarios registrados</h3>
+            <h3 class="card-title">Roles</h3>
             <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
             </button>
@@ -42,28 +43,23 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
                   <thead>
                   <tr> 
                     <th><center>Nro</center> </th>
-                    <th><center>Nombres</center> </th>
-                    <th><center>Usuario</center> </th>
-                    <th><center>Email</center> </th>
+                    <th><center>Nombre Rol</center> </th>
                     <th><center>Acciones</center> </th>
                     </tr>
                   </thead>
                   <body>
                     <?php
                        $contador = 0;
-                      foreach ($usuarios_datos as $usuarios_dato) { 
-                      $id_usuario = $usuarios_dato['id_usuario'];?>
+                      foreach ($roles_datos as $roles_dato) { 
+                      $id_rol = $roles_dato['id_rol'];?>
                      <tr> 
                         <td><center><?php echo $contador = $contador + 1; ?></center></td>
-                        <td><?php echo $usuarios_dato['nombres']; ?></td>
-                        <td><?php echo $usuarios_dato['usuarios']; ?></td>
-                        <td><?php echo $usuarios_dato['email']; ?></td>
+                        <td><?php echo $roles_dato['nombre_rol']; ?></td>
                         <td>
                         <center>
                         <div class="btn-group">
-                            <a href = "show.php?id=<?php echo $id_usuario;?>" type="button" class="btn btn-info"><i class="fa fa-eye"></i>Ver</button></a>
-                            <a href = "update.php?id=<?php echo $id_usuario;?>"type="button" class="btn btn-success"><i class="fa fa-pencil-alt"></i>Editar</button></a>
-                            <a href = "delete.php?id=<?php echo $id_usuario;?>"type="button" class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar</button></a>
+                            <a href = "update.php?id=<?php echo $id_rol;?>"type="button" class="btn btn-success"><i class="fa fa-pencil-alt"></i>Editar</button></a>
+                            <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar</button>
                         </div>
                         </center>
                         </td>
@@ -77,9 +73,7 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
                   <tfoot>
                   <tr> 
                     <th><center>Nro</center> </th>
-                    <th><center>Nombres</center> </th>
-                    <th><center>Usuario</center> </th>
-                    <th><center>Email</center> </th>
+                    <th><center>Nombre Rol</center> </th>
                     <th><center>Acciones</center> </th>
                     </tr>
                   </tfoot>
@@ -110,8 +104,9 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+   
   <?php include('../layout/mensaje.php'); ?>
-  <?php include('../layout/footer.php'); ?>
+<?php include('../layout/footer.php'); ?>
 
 <!-- Page specific script -->
 <script>
@@ -122,12 +117,12 @@ include('../app/controllers/usuarios/listado_de_usuarios.php');
           language: {
               "emptyTable": "No hay información",
               "decimal": "",
-              "info": "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
-              "infoEmpty": "Mostrando 0 to 0 of 0 Usuarios",
-              "infoFiltered": "(Filtrado de MAX total Usuarios)",
+              "info": "Mostrando _START_ a _END_ de _TOTAL_ Roles",
+              "infoEmpty": "Mostrando 0 to 0 of 0 Roles",
+              "infoFiltered": "(Filtrado de MAX total Roles)",
               "infoPostFix": "",
               "thousands": ",",
-              "lengthMenu": "Mostrar MENU Usuarios",
+              "lengthMenu": "Mostrar MENU Roles",
               "loadingRecords": "Cargando...",
               "processing": "Procesando...",
               "search": "Buscador:",
