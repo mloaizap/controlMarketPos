@@ -1,6 +1,6 @@
 <?php
 
-  include('../../config.php');
+ include('../../config.php');
 
   $id_rol = $_POST['id_rol'];
   $nombre_rol = $_POST['nombre_rol'];
@@ -12,15 +12,15 @@
    WHERE id_rol = :id_rol");
 
     // Vincular los parámetros
-    $sentencia->bindParam(':nombre_rol', $nombre_rol);
-    $sentencia->bindParam(':fyh_actualizacion', $fechaHora);
-    $sentencia->bindParam(':id_rol', $id_rol);
+    $sentencia->bindParam(':nombre_rol',$nombre_rol);
+    $sentencia->bindParam(':fyh_actualizacion',$fechaHora);
+    $sentencia->bindParam(':id_rol',$id_rol);
 
     if($sentencia->execute()){
         session_start();
         $_SESSION['mensaje'] = "Se actualizo el rol de la manera correcta";
         $_SESSION['icono'] = "success";
-        header('Location: '.$URL.'/roles/update.php');
+        header('Location: '.$URL.'/roles/index.php');
     }else{
         session_start();
         $_SESSION['mensaje'] = "Error no se actualizaron los datos";

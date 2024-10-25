@@ -2,7 +2,8 @@
 include('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/encabezado.php');
-include('../app/controllers/roles/update.php');
+include('../app/controllers/roles/update_roles.php');
+
 ?>
 
   <!-- Content Wrapper. Contains page content -->

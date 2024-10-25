@@ -3,188 +3,133 @@ include('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/encabezado.php');
 include('../app/controllers/inventarios/listado_productos.php');
-
 ?>
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-12">
-            <h1 class="m-0">Listado de Productos</h1>
-          </div><!-- /.col -->
-         </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+
+<!-- Content Wrapper -->
+<div class="content-wrapper">
+  <!-- Content Header -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-12">
+          <h1 class="m-0">Listado de Productos</h1>
+        </div>
+      </div>
     </div>
-    <!-- /.content-header -->
+  </div>
 
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-
-        <div class="row">
-            <div class="col-md-12">
-            <div class="card card-primary">
+  <!-- Main content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Card -->
+          <div class="card card-primary">
             <div class="card-header">
-            <h3 class="card-title">Registrar un producto nuevo</h3>
-            <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-            </button>
+              <h3 class="card-title">Registrar un producto nuevo</h3>
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
             </div>
-
-            </div>
-
-            <div class="card-body" style="display: block;">
-                               
-                </table>
+            <!-- Card Body -->
+            <div class="card-body">
+              <div class="table-responsive">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
-                  <tr> 
-                    <th><center>Nro</center> </th>
-                    <th><center>codigo</center> </th>
-                    <th><center>nombre_producto</center> </th>
-                    <th><center>descripcion</center> </th>
-                    <th><center>Categoria</center> </th>
-                    <th><center>costo</center> </th>
-                    <th><center>Pecio Venta</center> </th>
-                    <th><center>stock</center> </th>
-                    <th><center>stock_minimo</center> </th>
-                    <th><center>stock_maximo</center> </th>
-                    <th><center>Acciones</center> </th>
+                    <tr>
+                      <th><center>Nro</center></th>
+                      <th><center>Código Barras</center></th>
+                      <th><center>Imagen</center></th>
+                      <th><center>Nombre Producto</center></th>
+                      <th><center>Descripción</center></th>
+                      <th><center>Categoría</center></th>
+                      <th><center>Costo</center></th>
+                      <th><center>Precio Venta</center></th>
+                      <th><center>Precio Mayoreo</center></th>
+                      <th><center>Fecha compra</center></th>
+                      <th><center>Stock</center></th>
+                      <th><center>Stock Mínimo</center></th>
+                      <th><center>Stock Máximo</center></th>
+                      <th><center>Acciones</center></th>
                     </tr>
                   </thead>
-                  <body>
+                  <tbody>
                     <?php
-                       $contador = 0;
-                      foreach ($proveedores_datos as $proveedor_dato) { 
-                      $id_proveedor = $proveedor_dato['id_proveedor'];?>
-                     <tr> 
-                        <td><center><?php echo $contador = $contador + 1; ?></center></td>
-                        <td><?php echo $proveedor_dato['nombre_proveedor']; ?></td>
-                        <td><?php echo $proveedor_dato['nit']; ?></td>
-                        <td><?php echo $proveedor_dato['celular']; ?></td>
-                        <td><?php echo $proveedor_dato['telefono']; ?></td>
-                        <td><?php echo $proveedor_dato['email']; ?></td>
-                        <td><?php echo $proveedor_dato['direccion']; ?></td>
-                        <td>
-                        <center>
-                        <div class="btn-group">
-                            <a href = "show.php?id=<?php echo $id_proveedor;?>" type="button" class="btn btn-info"><i class="fa fa-eye"></i>Ver</button></a>
-                            <a href = "update.php?id=<?php echo $id_proveedor;?>"type="button" class="btn btn-success"><i class="fa fa-pencil-alt"></i>Editar</button></a>
-                            <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar</button>
+                    $contador = 0;
+                    foreach ($productos_datos as $producto) { 
+                      $id_producto = $producto['id_producto'];
+                    ?>
+                    <tr>
+                      <td class="text-center"><?= ++$contador; ?></td>
+                      <td><?= $producto['codigo_barras']; ?></td>
+                      <td><img src="<?= $producto['imagen']; ?>" alt="Producto" class="img-fluid" style="width:50px;"></td>
+                      <td><?= $producto['nombre_producto']; ?></td>
+                      <td><?= $producto['descripcion']; ?></td>
+                      <td><?= $producto['nombre_categoria']; ?></td>
+                      <td><?= $producto['costo']; ?></td>
+                      <td><?= $producto['precio_venta']; ?></td>
+                      <td><?= $producto['precio_mayoreo']; ?></td>
+                      <td><?= $producto['fecha_compra']; ?></td>
+                      <td><?= $producto['stock']; ?></td>
+                      <td><?= $producto['stock_minimo']; ?></td>
+                      <td><?= $producto['stock_maximo']; ?></td>
+                      
+                      <td>
+                        <div class="btn-group" role="group" aria-label="Acciones">
+                          <a href="show.php?id=<?= $id_producto; ?>" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Ver</a>
+                          <a href="update.php?id=<?= $id_producto; ?>" class="btn btn-success btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
+                          <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Eliminar</button>
                         </div>
-                        </center>
-                        </td>
-                     </tr>                  
-                    <?php
-                    }
-                    ?>                
-                    
-                </body>
-                  
-                  <tfoot>
-                  <tr> 
-                    <th><center>Nro</center> </th>
-                    <th><center>codigo</center> </th>
-                    <th><center>nombre_producto</center> </th>
-                    <th><center>descripcion</center> </th>
-                    <th><center>Categoria</center> </th>
-                    <th><center>costo</center> </th>
-                    <th><center>Pecio Venta</center> </th>
-                    <th><center>stock</center> </th>
-                    <th><center>stock_minimo</center> </th>
-                    <th><center>stock_maximo</center> </th>
-                    <th><center>Acciones</center> </th>
+                      </td>
                     </tr>
-                  </tfoot>
+                    <?php } ?>
+                  </tbody>
                 </table>
               </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
+            <!-- /.card-body -->
           </div>
-          <!-- /.col -->
+          <!-- /.card -->
         </div>
-        <!-- /.row -->
       </div>
-      <!-- /.container-fluid -->
-               
-            </div>
-
-            </div>
-            </div>
-        </div>
-      
-         
-          <!-- /.col-md-6 -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-  <?php include('../layout/mensajes.php'); ?>
-  <?php include('../layout/footer.php'); ?>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<?php include('../layout/mensaje.php'); ?>
+<?php include('../layout/footer.php'); ?>
 
 <!-- Page specific script -->
 <script>
-  $(function () {
-    $("#example1").DataTable({
-   /* cambio de idiomas de datatable */
-   "pageLength": 8,
-          language: {
-              "emptyTable": "No hay información",
-              "decimal": "",
-              "info": "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
-              "infoEmpty": "Mostrando 0 to 0 of 0 Usuarios",
-              "infoFiltered": "(Filtrado de MAX total Usuarios)",
-              "infoPostFix": "",
-              "thousands": ",",
-              "lengthMenu": "Mostrar MENU Usuarios",
-              "loadingRecords": "Cargando...",
-              "processing": "Procesando...",
-              "search": "Buscador:",
-              "zeroRecords": "Sin resultados encontrados",
-              "paginate": {
-                  "first": "Primero",
-                  "last": "Ultimo",
-                  "next": "Siguiente",
-                  "previous": "Anterior"
-              },
-             },
-      /* fin de idiomas */
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      //"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"] ---visualizar todo
-      /* Ajuste de botones */
-      buttons: [{
-                        extend: 'collection',
-                        text: 'Reportes',
-                        orientation: 'landscape',
-                        buttons: [{
-                            text: 'Copiar',
-                            extend: 'copy'
-                        }, {
-                            extend: 'pdf',
-                        }, {
-                            extend: 'csv',
-                        }, {
-                            extend: 'excel',
-                        }, {
-                            text: 'Imprimir',
-                            extend: 'print'
-                        }
-                        ]
-                    },
-                        {
-                            extend: 'colvis',
-                            text: 'Visor de columnas'
-                        }
-                    ],
-                    /*Fin de ajuste de botones*/
-
-
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    });
+$(function () {
+  $("#example1").DataTable({
+    "pageLength": 8,
+    "language": {
+      "emptyTable": "No hay información",
+      "info": "Mostrando _START_ a _END_ de _TOTAL_ productos",
+      "infoEmpty": "Mostrando 0 a 0 de 0 productos",
+      "search": "Buscador:",
+      "paginate": {
+        "first": "Primero",
+        "last": "Último",
+        "next": "Siguiente",
+        "previous": "Anterior"
+      }
+    },
+    "responsive": true, "lengthChange": false, "autoWidth": false,
+    buttons: [{
+      extend: 'collection',
+      text: 'Reportes',
+      buttons: ['copy', 'pdf', 'csv', 'excel', 'print']
+    },
+    {
+      extend: 'colvis',
+      text: 'Visor de columnas'
+    }]
+  }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+});
 </script>

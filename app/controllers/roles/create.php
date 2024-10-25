@@ -10,6 +10,7 @@ $nombre_rol = $_POST['nombre_rol'];
 
 $sentencia->bindParam(':nombre_rol', $nombre_rol);
 $sentencia->bindParam(':fyh_creacion', $fechaHora);
+
 if($sentencia -> execute()){
   session_start();
   $_SESSION['mensaje'] = "Se ha creado correctamente el Rol";

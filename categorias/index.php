@@ -13,7 +13,7 @@ include('../app/controllers/categorias/listado_categorias.php');
         <div class="row mb-2">
           <div class="col-sm-12">
             <h1 class="m-0">Listado de categorias</h1>
-          </div><!-- /.col -->
+            </div><!-- /.col -->
          </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -57,8 +57,8 @@ include('../app/controllers/categorias/listado_categorias.php');
                         <td>
                         <center>
                         <div class="btn-group">
-                            <a href = "update.php?id=<?php echo $nombre_categoria;?>"type="button" class="btn btn-success"><i class="fa fa-pencil-alt"></i>Editar</button></a>
-                            <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar</button>
+                            <a href = "update.php?id=<?php echo $id_categoria;?>"type="button" class="btn btn-success"><i class="fa fa-pencil-alt"></i>Editar</button></a>
+                            <a href = "delete.php?id=<?php echo $id_categoria;?>"type="button" class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar</button></a> 
                         </div>
                         </center>
                         </td>

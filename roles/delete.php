@@ -32,7 +32,7 @@ include('../app/controllers/roles/show_roles.php');
             <div class="card-body" style="display: block;">
                 <div class="col-md-12">
                   <form action="../app/controllers/roles/delete_roles.php" method="post">
-                  <input type="text" name="id_rol" value="<?php echo $id_rol_get; ?>"> 
+                  <input type="text" name="id_rol" value="<?php echo $id_rol_get; ?>" hidden> 
                   <div class="form-group">
                   <label for="">Nombre rol</label>
                   <input type="text" name="nombre_rol" class="form-control" value="<?php echo $nombre_rol;?>" disabled>
@@ -72,7 +72,8 @@ include('../app/controllers/roles/show_roles.php');
     </div>
     <!-- /.content -->
   </div>
+  </div>
   <!-- /.content-wrapper -->
 
   <?php include('../layout/mensaje.php'); ?>
-<?php include('../layout/footer.php'); ?>
+  <?php include('../layout/footer.php'); ?>

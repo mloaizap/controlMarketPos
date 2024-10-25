@@ -8,3 +8,9 @@ $proveedores_datos = $query_proveedores->fetchAll(fech_style: PDO::FETCH_ASSOC);
 
 
 ?>
+
+
+
+
+
+

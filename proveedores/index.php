@@ -44,10 +44,7 @@ include('../app/controllers/proveedores/listado_proveedores.php');
                     <th><center>Nro</center> </th>
                     <th><center>Nombre_proveedor</center> </th>
                     <th><center>Nit</center> </th>
-                    <th><center>Celular</center> </th>
-                    <th><center>Telefono</center> </th>
                     <th><center>Email</center> </th>
-                    <th><center>Dirección</center> </th>
                     <th><center>Acciones</center> </th>
                     </tr>
                   </thead>
@@ -60,10 +57,7 @@ include('../app/controllers/proveedores/listado_proveedores.php');
                         <td><center><?php echo $contador = $contador + 1; ?></center></td>
                         <td><?php echo $proveedor_dato['nombre_proveedor']; ?></td>
                         <td><?php echo $proveedor_dato['nit']; ?></td>
-                        <td><?php echo $proveedor_dato['celular']; ?></td>
-                        <td><?php echo $proveedor_dato['telefono']; ?></td>
                         <td><?php echo $proveedor_dato['email']; ?></td>
-                        <td><?php echo $proveedor_dato['direccion']; ?></td>
                         <td>
                         <center>
                         <div class="btn-group">
@@ -82,13 +76,10 @@ include('../app/controllers/proveedores/listado_proveedores.php');
                   
                   <tfoot>
                   <tr> 
-                    <th><center>Nro</center> </th>
+                  <th><center>Nro</center> </th>
                     <th><center>Nombre_proveedor</center> </th>
                     <th><center>Nit</center> </th>
-                    <th><center>Celular</center> </th>
-                    <th><center>Telefono</center> </th>
                     <th><center>Email</center> </th>
-                    <th><center>Dirección</center> </th>
                     <th><center>Acciones</center> </th>
                     </tr>
                   </tfoot>

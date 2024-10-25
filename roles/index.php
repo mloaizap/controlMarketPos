@@ -59,8 +59,7 @@ include('../app/controllers/roles/listado_roles.php');
                         <center>
                         <div class="btn-group">
                             <a href = "update.php?id=<?php echo $id_rol;?>"type="button" class="btn btn-success"><i class="fa fa-pencil-alt"></i>Editar</button></a>
-                            <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar</button>
-                        </div>
+                            <a href = "delete.php?id=<?php echo $id_rol;?>"type="button" class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar</button></a> 
                         </center>
                         </td>
                      </tr>                  
