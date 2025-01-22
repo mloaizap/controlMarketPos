@@ -4,6 +4,8 @@ include('layout/sesion.php');
 include('layout/encabezado.php');
 include('app/controllers/usuarios/listado_de_usuarios.php');
 include('app/controllers/roles/listado_roles.php');
+include('app/controllers/inventarios/listado_productos.php');
+include('app/controllers/clientes/listado_clientes.php');
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -54,7 +56,7 @@ include('app/controllers/roles/listado_roles.php');
         }
         ?>
       <h3><?php echo $contador_de_roles;?></h3>
-      <p>Total de roles</p>
+      <p>Total roles</p>
       </div>
       <a href="<?php echo $URL;?>/roles/create.php">
       <div class="icon">
@@ -69,7 +71,7 @@ include('app/controllers/roles/listado_roles.php');
      
          <!-- tarjeta total productos -->
          <div class="col-lg-3 col-6">
-      <div class="small-box bg-info">
+      <div class="small-box bg-success">
       <div class="inner">
         <?php
         $contador_de_productos = 0;
@@ -91,6 +93,29 @@ include('app/controllers/roles/listado_roles.php');
      </div>
      </div>
      
+       <!-- tarjeta total clientes -->
+       <div class="col-lg-3 col-6">
+      <div class="small-box bg-info">
+      <div class="inner">
+        <?php
+        $contador_de_clientes = 0;
+        foreach($clientes_datos as $clientes_dato){
+          $contador_de_clientes = $contador_de_clientes + 1;
+        }
+        ?>
+      <h3><?php echo $contador_de_clientes;?></h3>
+      <p>Total clientes</p>
+      </div>
+      <a href="<?php echo $URL;?>/clientes/create.php">
+      <div class="icon">
+      <i class="fas fa-user-plus"></i>
+      
+      </div>
+      <a href="<?php echo $URL;?>/clientes/index.php" class="small-box-footer">
+      Más información <i class="fas fa-arrow-circle-right"></i>
+     </a>
+     </div>
+     </div>
 
       
       </div><!-- /.row -->

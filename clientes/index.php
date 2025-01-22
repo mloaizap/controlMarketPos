@@ -2,7 +2,7 @@
 include('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/encabezado.php');
-include('../app/controllers/proveedores/listado_proveedores.php');
+include('../app/controllers/clientes/listado_clientes.php');
 
 ?>
   <!-- Content Wrapper. Contains page content -->
@@ -12,7 +12,7 @@ include('../app/controllers/proveedores/listado_proveedores.php');
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
-            <h1 class="m-0">Listado de proveedores</h1>
+            <h1 class="m-0">Listado clientes</h1>
           </div><!-- /.col -->
          </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -27,7 +27,7 @@ include('../app/controllers/proveedores/listado_proveedores.php');
             <div class="col-md-12">
             <div class="card card-primary">
             <div class="card-header">
-            <h3 class="card-title">Proveedores registrados</h3>
+            <h3 class="card-title">Clientes registrados</h3>
             <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
             </button>
@@ -42,28 +42,34 @@ include('../app/controllers/proveedores/listado_proveedores.php');
                   <thead>
                   <tr> 
                     <th><center>Nro</center> </th>
-                    <th><center>Nombre_proveedor</center> </th>
-                    <th><center>Nit</center> </th>
+                    <th><center>Nombres</center> </th>
+                    <th><center>Apellidos</center> </th>
+                    <th><center>Telefono</center> </th>
                     <th><center>Email</center> </th>
+                    <th><center>Tiene credito</center> </th>
+                    <th><center>Monto</center> </th>
                     <th><center>Acciones</center> </th>
                     </tr>
                   </thead>
                   <body>
                     <?php
                        $contador = 0;
-                      foreach ($proveedores_datos as $proveedor_dato) { 
-                      $id_proveedor = $proveedor_dato['id_proveedor'];?>
+                      foreach ($clientes_datos as $clientes_dato) { 
+                      $id_cliente = $clientes_dato['id_cliente'];?>
                      <tr> 
                         <td><center><?php echo $contador = $contador + 1; ?></center></td>
-                        <td><?php echo $proveedor_dato['nombre_proveedor']; ?></td>
-                        <td><?php echo $proveedor_dato['nit']; ?></td>
-                        <td><?php echo $proveedor_dato['email']; ?></td>
+                        <td><?php echo $clientes_dato['nombres']; ?></td>
+                        <td><?php echo $clientes_dato['apellidos']; ?></td>
+                        <td><?php echo $clientes_dato['telefono']; ?></td>
+                        <td><?php echo $clientes_dato['email']; ?></td>
+                        <td><?php echo $clientes_dato['tiene_credito']; ?></td>
+                        <td><?php echo $clientes_dato['monto']; ?></td>
                         <td>
                         <center>
                         <div class="btn-group">
-                            <a href = "show.php?id=<?php echo $id_proveedor;?>" type="button" class="btn btn-info"><i class="fa fa-eye"></i>Ver</button></a>
-                            <a href = "update.php?id=<?php echo $id_proveedor;?>"type="button" class="btn btn-success"><i class="fa fa-pencil-alt"></i>Editar</button></a>
-                            <a href = "delete.php?id=<?php echo $id_proveedor;?> "type="button" class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar</button></a>
+                            
+                            <a href = "update.php?id=<?php echo $id_cliente;?>"type="button" class="btn btn-success"><i class="fa fa-pencil-alt"></i>Editar</button></a>
+                            <a href = "delete.php?id=<?php echo $id_cliente;?>"type="button" class="btn btn-danger"><i class="fa fa-trash"></i>Eliminar</button></a>
                         </div>
                         </center>
                         </td>
@@ -77,9 +83,12 @@ include('../app/controllers/proveedores/listado_proveedores.php');
                   <tfoot>
                   <tr> 
                   <th><center>Nro</center> </th>
-                    <th><center>Nombre_proveedor</center> </th>
-                    <th><center>Nit</center> </th>
-                    <th><center>Email</center> </th>
+                    <th><center>Nombres</center> </th>
+                    <th><center>Apellidos</center> </th>
+                    <th><center>Telefono</center> </th>
+                    <th><center>Correo electronico</center> </th>
+                    <th><center>Tiene credito</center> </th>
+                    <th><center>Monto</center> </th>
                     <th><center>Acciones</center> </th>
                     </tr>
                   </tfoot>
@@ -110,7 +119,7 @@ include('../app/controllers/proveedores/listado_proveedores.php');
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <?php include('../layout/mensajes.php'); ?>
+  <?php include('../layout/mensaje.php'); ?>
   <?php include('../layout/footer.php'); ?>
 
 <!-- Page specific script -->
